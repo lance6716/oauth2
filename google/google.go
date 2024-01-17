@@ -278,6 +278,7 @@ func (cs computeSource) Token() (*oauth2.Token, error) {
 		tokenURI = tokenURI + "?" + v.Encode()
 	}
 	tokenJSON, err := metadata.Get(tokenURI)
+	fmt.Printf("tokenJSON: %v\n", tokenJSON)
 	if err != nil {
 		return nil, err
 	}

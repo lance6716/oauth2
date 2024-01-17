@@ -6,6 +6,7 @@ package oauth2
 
 import (
 	"errors"
+	"fmt"
 	"log"
 	"net/http"
 	"sync"
@@ -43,6 +44,7 @@ func (t *Transport) RoundTrip(req *http.Request) (*http.Response, error) {
 		return nil, errors.New("oauth2: Transport's Source is nil")
 	}
 	token, err := t.Source.Token()
+	fmt.Println("pass t.Source.Token")
 	if err != nil {
 		return nil, err
 	}
